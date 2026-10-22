@@ -1,0 +1,391 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #030712;
+  color: #F9FAFB;
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOP NAVBAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 28px;
+  background: rgba(10, 15, 30, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #FFD700;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+  letter-spacing: 2px;
+}
+
+.brand-badge {
+  background: rgba(255, 215, 0, 0.15);
+  border: 1px solid #FFD700;
+  color: #FFD700;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.tidecloak-status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tidecloak-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tidecloak-pill.verified {
+  border-color: #00E676;
+  color: #00E676;
+  background: rgba(0, 230, 118, 0.1);
+}
+
+.btn-tidecloak {
+  background: linear-gradient(135deg, #FFD700, #FFA000);
+  color: #0A0F1D;
+  border: none;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.3);
+}
+
+.btn-tidecloak:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+/* HANGAR SELECTION */
+.hangar-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background: radial-gradient(circle at 50% 20%, #111827 0%, #030712 80%);
+}
+
+.hangar-heading {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  color: #FFF;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.hangar-sub {
+  color: #9CA3AF;
+  margin-bottom: 36px;
+  font-size: 1.1rem;
+}
+
+.ships-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  width: 100%;
+  margin-bottom: 36px;
+}
+
+.ship-card {
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.ship-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 215, 0, 0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.ship-card.selected {
+  border-color: #FFD700;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+  background: rgba(31, 41, 55, 0.85);
+}
+
+.ship-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.ship-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFF;
+  margin-bottom: 4px;
+}
+
+.ship-title {
+  color: #FFD700;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+}
+
+.ship-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  color: #D1D5DB;
+}
+
+.skills-preview {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 12px;
+}
+
+.skills-preview-title {
+  font-size: 0.8rem;
+  color: #9CA3AF;
+  margin-bottom: 8px;
+}
+
+.skills-tags {
+  display: flex;
+  gap: 6px;
+}
+
+.skill-tag {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.btn-launch {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  padding: 16px 48px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #FF1744, #D50000);
+  color: #FFF;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+  box-shadow: 0 0 30px rgba(255, 23, 68, 0.5);
+}
+
+.btn-launch:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 45px rgba(255, 23, 68, 0.8);
+}
+
+/* GAME CANVAS VIEW */
+.game-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  position: relative;
+}
+
+.game-hud {
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  background: rgba(17, 24, 39, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.hud-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hp-bar-container {
+  width: 200px;
+  height: 16px;
+  background: #374151;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hp-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00E676, #76FF03);
+  transition: width 0.15s;
+}
+
+.hp-bar.danger {
+  background: linear-gradient(90deg, #FF1744, #FF5252);
+}
+
+.canvas-wrapper {
+  position: relative;
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.8);
+}
+
+canvas {
+  display: block;
+}
+
+/* SKILLS DOCK */
+.skills-dock {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.skill-slot {
+  width: 140px;
+  background: rgba(17, 24, 39, 0.9);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-key {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  color: #FFD700;
+  font-size: 1rem;
+}
+
+.skill-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.skill-cd-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: #FF1744;
+}
+
+/* BOSS BAR */
+.boss-hud {
+  position: absolute;
+  top: 90px;
+  width: 600px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid #FF1744;
+  border-radius: 6px;
+  padding: 8px 16px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 23, 68, 0.4);
+}
+
+.boss-title {
+  font-family: 'Orbitron', sans-serif;
+  color: #FF1744;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.boss-hp-bar {
+  width: 100%;
+  height: 12px;
+  background: #374151;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.boss-hp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF1744, #D50000);
+}
+
+/* MODAL OVERLAY */
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-card {
+  background: #111827;
+  border: 2px solid #FFD700;
+  border-radius: 12px;
+  padding: 36px 48px;
+  text-align: center;
+  max-width: 480px;
+}
+
+.modal-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  color: #FFD700;
+  margin-bottom: 12px;
+}
